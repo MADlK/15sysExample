@@ -83,8 +83,36 @@ int main(int argc, char* argv[]) {
 	cout << "Bytes send: " << iResult << endl;
 
 	
+	// Новое: чтение с консоли через char[]
+	const int buflen = 512;
+	char sendbuf[buflen];
+	char recbuf[buflen];
 
-	do {
+	cout << "Connected. Type message (empty line to exit):\n";
+	while (cin.getline(sendbuf, buflen))
+	{
+		if (strlen(sendbuf) == 0) break; // Пустая строка → выход
+
+		iResult = send(ConnectSocket, sendbuf, (int)strlen(sendbuf), 0);
+		if (iResult == SOCKET_ERROR) {
+			cout << "error send: " << WSAGetLastError() << endl;
+			break;
+		}
+		cout << "Bytes send: " << iResult << endl;
+
+		// Ждём ответ от сервера сразу после отправки
+		iResult = recv(ConnectSocket, recbuf, buflen - 1, 0);
+		if (iResult > 0) {
+			recbuf[iResult] = '\0'; // Закрываем строку нулём
+			cout << "Server: " << recbuf << endl;
+		}
+		else if (iResult == 0) {
+			cout << "Connection closed by server" << endl;
+			break;
+		}
+	}
+
+	/*do {
 		iResult = recv(ConnectSocket, recbuf, buflen, 0);
 		if (iResult > 0) {
 			cout << "Bytes recevied: " << iResult << endl;
@@ -96,7 +124,7 @@ int main(int argc, char* argv[]) {
 			cout << "recv error: " << WSAGetLastError() << endl;
 		}
 
-	} while (iResult > 0);
+	} while (iResult > 0);*/
 
 	iResult = shutdown(ConnectSocket, SD_SEND);
 

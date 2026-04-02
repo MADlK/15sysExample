@@ -10,6 +10,11 @@
 
 using namespace std;
 
+
+
+
+
+
 int main(int argc, char* argv[]) {
 
 	WSAData wsaData;
@@ -83,7 +88,44 @@ int main(int argc, char* argv[]) {
 	int sendResult;
 	char recvbuf[buflen];
 	const char *sendbuf = "send from server";
+
+
+	// Новое: логирование текста клиента
+	const int buflen = 512;
+	char recvbuf[buflen];
+	iResult = 0;
 	do {
+		iResult = recv(ClientSocket, recvbuf, buflen - 1, 0);
+		if (iResult > 0) {
+			recvbuf[iResult] = '\0'; // Превращаем сырые байты в C-строку
+			cout << "[SERVER LOG] Client wrote: " << recvbuf << endl;
+
+			// Ответ клиенту (исправлен баг sizeof → strlen)
+			const char* reply = "Message received\n";
+			sendResult = send(ClientSocket, reply, (int)strlen(reply), 0);
+			if (sendResult == SOCKET_ERROR) {
+				cout << "send failed: " << WSAGetLastError() << endl;
+				break;
+			}
+		}
+		else if (iResult == 0)
+			cout << "connection closed" << endl;
+		else {
+			cout << "recv failed: " << WSAGetLastError() << endl;
+			break;
+		}
+	} while (iResult > 0);
+
+
+
+
+
+
+
+
+
+
+	/*do {
 		iResult = recv(ClientSocket, recvbuf, buflen, 0);
 		if (iResult > 0) {
 			cout << "Receved bytes: " << iResult << endl;
@@ -104,13 +146,13 @@ int main(int argc, char* argv[]) {
 			WSACleanup();
 			return 1;
 		}
-	} while (iResult > 0);
+	} while (iResult > 0);*/
 
 	iResult = shutdown(ClientSocket, SD_SEND);
 
 	if (iResult == SOCKET_ERROR) {
 		cout << "error shutdown: " << WSAGetLastError() << endl;
-		closesocket(ClientSocket);
+		closesocket(ClientSocket); 
 		WSACleanup();
 		return 1;
 	}
