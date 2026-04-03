@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\_learnProject\\WinSocketClient\\",
+  "WorkspaceRootPath": "C:\\Users\\st310-09\\Desktop\\15sysExample\\Windows Sockets\\WinSocketClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{69E2372D-847D-4152-9944-B1983BACDA96}|WinSocketClient\\WinSocketClient.vcxproj|D:\\_learnProject\\WinSocketClient\\WinSocketClient\\WinSocketClient.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{69E2372D-847D-4152-9944-B1983BACDA96}|WinSocketClient\\WinSocketClient.vcxproj|solutionrelative:WinSocketClient\\WinSocketClient.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{26503AF8-F035-4A1E-B9E6-15D5132047C0}|WinSocketServer\\WinSocketServer.vcxproj|C:\\Users\\st310-09\\Desktop\\15sysExample\\Windows Sockets\\WinSocketClient\\WinSocketServer\\WinSocketServer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{26503AF8-F035-4A1E-B9E6-15D5132047C0}|WinSocketServer\\WinSocketServer.vcxproj|solutionrelative:WinSocketServer\\WinSocketServer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26503AF8-F035-4A1E-B9E6-15D5132047C0}|WinSocketServer\\WinSocketServer.vcxproj|D:\\_learnProject\\WinSocketClient\\WinSocketServer\\WinSocketServer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{26503AF8-F035-4A1E-B9E6-15D5132047C0}|WinSocketServer\\WinSocketServer.vcxproj|solutionrelative:WinSocketServer\\WinSocketServer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{69E2372D-847D-4152-9944-B1983BACDA96}|WinSocketClient\\WinSocketClient.vcxproj|C:\\Users\\st310-09\\Desktop\\15sysExample\\Windows Sockets\\WinSocketClient\\WinSocketClient\\WinSocketClient.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{69E2372D-847D-4152-9944-B1983BACDA96}|WinSocketClient\\WinSocketClient.vcxproj|solutionrelative:WinSocketClient\\WinSocketClient.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +18,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "WinSocketServer.cpp",
-              "DocumentMoniker": "D:\\_learnProject\\WinSocketClient\\WinSocketServer\\WinSocketServer.cpp",
+              "DocumentMoniker": "C:\\Users\\st310-09\\Desktop\\15sysExample\\Windows Sockets\\WinSocketClient\\WinSocketServer\\WinSocketServer.cpp",
               "RelativeDocumentMoniker": "WinSocketServer\\WinSocketServer.cpp",
-              "ToolTip": "D:\\_learnProject\\WinSocketClient\\WinSocketServer\\WinSocketServer.cpp",
-              "RelativeToolTip": "WinSocketServer\\WinSocketServer.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\st310-09\\Desktop\\15sysExample\\Windows Sockets\\WinSocketClient\\WinSocketServer\\WinSocketServer.cpp*",
+              "RelativeToolTip": "WinSocketServer\\WinSocketServer.cpp*",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACIAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-02-24T04:33:13.428Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "WinSocketClient.cpp",
-              "DocumentMoniker": "D:\\_learnProject\\WinSocketClient\\WinSocketClient\\WinSocketClient.cpp",
+              "DocumentMoniker": "C:\\Users\\st310-09\\Desktop\\15sysExample\\Windows Sockets\\WinSocketClient\\WinSocketClient\\WinSocketClient.cpp",
               "RelativeDocumentMoniker": "WinSocketClient\\WinSocketClient.cpp",
-              "ToolTip": "D:\\_learnProject\\WinSocketClient\\WinSocketClient\\WinSocketClient.cpp",
+              "ToolTip": "C:\\Users\\st310-09\\Desktop\\15sysExample\\Windows Sockets\\WinSocketClient\\WinSocketClient\\WinSocketClient.cpp",
               "RelativeToolTip": "WinSocketClient\\WinSocketClient.cpp",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAEcAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAFsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-02-24T03:58:40.301Z",
               "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 427,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }

@@ -10,12 +10,76 @@
 
 using namespace std;
 
+//переделать чтобы поток только получал сообщение
+DWORD WINAPI Client(LPVOID CS)
+{
+	SOCKET* ClientSock = (SOCKET*) CS;
+	SOCKET ClientSocket = *ClientSock;
+	const int buflen = 512;
+	int iResult = 0;
+	int sendResult;
+	char recvbuf[buflen] ="";
+	char Name[64] ="new";
+	const char* sendbuf = "send from server";
+
+	iResult = recv(ClientSocket, recvbuf, buflen - 1, 0);
+	
+	if (iResult > 0) {
+		recvbuf[iResult] = '\0'; 
+		memcpy(Name, recvbuf, iResult);
+		//Name[iResult] = '\0';
+		
+		cout << "[SERVER LOG] Client [" << Name  << "] connected" << endl;
+	}
+	else
+	{
+		closesocket(ClientSocket);
+		return 0;
+
+	}
+	const char* repl = "МОЛОДЕЦ";
+	sendResult = send(ClientSocket, repl, (int)strlen(repl), 0);
+	
+	//const int buflen = 512;
+	//char recvbuf[buflen];
+	//iResult = 0;
+	do {
+		iResult = recv(ClientSocket, recvbuf, buflen - 1, 0);
+		if (iResult > 0) {
+			recvbuf[iResult] = '\0'; 
+			cout << "[SERVER LOG] Client wrote: " << recvbuf << endl;
+
+			
+			const char* reply = "\n";
+			sendResult = send(ClientSocket, reply, (int)strlen(reply), 0);
+			if (sendResult == SOCKET_ERROR) {
+				cout << "send failed: " << WSAGetLastError() << endl;
+				break;
+			}
+		}
+		else if (iResult == 0)
+			cout << "Отключился" << endl;
+		else 
+		{
+			cout << "recv failed: " << WSAGetLastError() << endl;
+			break;
+		}
+	} while (iResult > 0);
+
+	closesocket(ClientSocket);
+
+	return 0;
+}
+
+
 
 
 
 
 
 int main(int argc, char* argv[]) {
+
+	setlocale(0, "ru");
 
 	WSAData wsaData;
 
@@ -65,6 +129,9 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
+
+	freeaddrinfo(result);
+
 	if (listen(ListenSocket, SOMAXCONN) == SOCKET_ERROR) {
 		cout << "Listen failed: " << WSAGetLastError() << endl;
 		closesocket(ListenSocket);
@@ -72,50 +139,28 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
-	SOCKET ClientSocket = INVALID_SOCKET;
+	cout << "[SERVER] Listen"<<endl;
 
-	ClientSocket = accept(ListenSocket, NULL, NULL);
+	
+	SOCKET ClientSocket;
+	while (true)
+	{
+		ClientSocket = accept(ListenSocket, NULL, NULL);
+		if (ClientSocket == INVALID_SOCKET) {
+			cout << "accept filed: " << WSAGetLastError() << endl;
 
-	if (ClientSocket == INVALID_SOCKET) {
-		cout << "accept filed: " << WSAGetLastError() << endl;
-		closesocket(ListenSocket);
-		WSACleanup();
-		return 1;
-	}
-
-	const int buflen = 512;
-	iResult = 0;
-	int sendResult;
-	char recvbuf[buflen];
-	const char *sendbuf = "send from server";
-
-
-	// Новое: логирование текста клиента
-	const int buflen = 512;
-	char recvbuf[buflen];
-	iResult = 0;
-	do {
-		iResult = recv(ClientSocket, recvbuf, buflen - 1, 0);
-		if (iResult > 0) {
-			recvbuf[iResult] = '\0'; // Превращаем сырые байты в C-строку
-			cout << "[SERVER LOG] Client wrote: " << recvbuf << endl;
-
-			// Ответ клиенту (исправлен баг sizeof → strlen)
-			const char* reply = "Message received\n";
-			sendResult = send(ClientSocket, reply, (int)strlen(reply), 0);
-			if (sendResult == SOCKET_ERROR) {
-				cout << "send failed: " << WSAGetLastError() << endl;
-				break;
-			}
-		}
-		else if (iResult == 0)
-			cout << "connection closed" << endl;
-		else {
-			cout << "recv failed: " << WSAGetLastError() << endl;
+			closesocket(ListenSocket);
+			WSACleanup();
 			break;
 		}
-	} while (iResult > 0);
+		cout<<"[SERVER] новый клиент" << endl;
+		HANDLE hThread = CreateThread(NULL,0,Client,&ClientSocket,0,NULL);
+	}
 
+	
+
+	
+	cout << "1" << endl;
 
 
 

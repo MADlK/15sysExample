@@ -11,6 +11,9 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
+	setlocale(0, "ru");
+
+
 
 	WSAData wsaData;
 
@@ -65,51 +68,63 @@ int main(int argc, char* argv[]) {
 
 	const int buflen = 512;
 
-	const char* sendbuf = "this is test";
+	//const char* sendbuf = "this is test";
 	
-	char recbuf[buflen];
+	char recbuf[buflen] ="";
 
+
+	//const int buflen = 512;
+	char sendbuf[buflen] = "";
+	//char recbuf[buflen];
+
+	cout << "Введите свое имя" << endl;
 	iResult = 0;
 	
-	iResult = send(ConnectSocket, sendbuf, (int)strlen(sendbuf), 0);
-
-	if (iResult == SOCKET_ERROR) {
-		cout << "error send: " << WSAGetLastError() << endl;
-		closesocket(ConnectSocket);
-		WSACleanup();
-		return 1;
-	}
-
-	cout << "Bytes send: " << iResult << endl;
 
 	
-	// Новое: чтение с консоли через char[]
-	const int buflen = 512;
-	char sendbuf[buflen];
-	char recbuf[buflen];
 
+	
+	
+
+	bool f = false;
 	cout << "Connected. Type message (empty line to exit):\n";
+	cout << "Введите имя"<< endl;
+
 	while (cin.getline(sendbuf, buflen))
 	{
-		if (strlen(sendbuf) == 0) break; // Пустая строка → выход
+		
+		if (strlen(sendbuf) == 0) break; // Пустая строка  выход
 
 		iResult = send(ConnectSocket, sendbuf, (int)strlen(sendbuf), 0);
 		if (iResult == SOCKET_ERROR) {
 			cout << "error send: " << WSAGetLastError() << endl;
 			break;
 		}
-		cout << "Bytes send: " << iResult << endl;
-
-		// Ждём ответ от сервера сразу после отправки
-		iResult = recv(ConnectSocket, recbuf, buflen - 1, 0);
-		if (iResult > 0) {
-			recbuf[iResult] = '\0'; // Закрываем строку нулём
-			cout << "Server: " << recbuf << endl;
-		}
-		else if (iResult == 0) {
-			cout << "Connection closed by server" << endl;
+		if(sendbuf == "\\Exit" || sendbuf == "\\exit")
+		{
+			cout << "Вы отключились" << endl;
 			break;
 		}
+		/////в сервере сохранять имена клиентов (создать структуру которая будет хранить имя и активность, вывод только активныхпользователей)
+		if (sendbuf == "\\Users" || sendbuf == "\\users")
+		{
+			cout << "Список всех пользователей" << endl;
+			break;
+		}
+
+
+
+
+		//// Ждём ответ от сервера сразу после отправки
+		//iResult = recv(ConnectSocket, recbuf, buflen - 1, 0);
+		//if (iResult > 0) {
+		//	recbuf[iResult] = '\0'; // Закрываем строку нулём
+		//	cout << "Server: " << recbuf << endl;
+		//}
+		//else if (iResult == 0) {
+		//	cout << "Connection closed by server" << endl;
+		//	break;
+		//}
 	}
 
 	/*do {

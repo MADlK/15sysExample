@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\_learnProject\WinSocketClient\x64\Debug\WinSocketServer.exe</FullPath>
+      <FullPath>C:\Users\st310-09\Desktop\15sysExample\Windows Sockets\WinSocketClient\x64\Debug\WinSocketServer.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
