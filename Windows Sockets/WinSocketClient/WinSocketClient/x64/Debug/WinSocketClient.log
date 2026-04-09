@@ -1,4 +1,4 @@
 ﻿  WinSocketClient.cpp
-C:\Users\m20er\OneDrive\Рабочий стол\15sysExample\Windows Sockets\WinSocketClient\WinSocketClient\WinSocketClient.cpp(112,50): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\m20er\OneDrive\Рабочий стол\15sysExample\Windows Sockets\WinSocketClient\WinSocketClient\WinSocketClient.cpp(136,17): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-  WinSocketClient.vcxproj -> C:\Users\m20er\OneDrive\Рабочий стол\15sysExample\Windows Sockets\WinSocketClient\x64\Debug\WinSocketClient.exe
+C:\Users\st310-09\Desktop\15sysExample\Windows Sockets\WinSocketClient\WinSocketClient\WinSocketClient.cpp(113,50): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\st310-09\Desktop\15sysExample\Windows Sockets\WinSocketClient\WinSocketClient\WinSocketClient.cpp(138,17): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  WinSocketClient.vcxproj -> C:\Users\st310-09\Desktop\15sysExample\Windows Sockets\WinSocketClient\x64\Debug\WinSocketClient.exe

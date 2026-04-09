@@ -1,5 +1,5 @@
 ﻿  WinSocketServer.cpp
-C:\Users\m20er\OneDrive\Рабочий стол\15sysExample\Windows Sockets\WinSocketClient\WinSocketServer\WinSocketServer.cpp(49,46): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\m20er\OneDrive\Рабочий стол\15sysExample\Windows Sockets\WinSocketClient\WinSocketServer\WinSocketServer.cpp(117,57): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\m20er\OneDrive\Рабочий стол\15sysExample\Windows Sockets\WinSocketClient\WinSocketServer\WinSocketServer.cpp(69,9): warning C4101: sendResult: неиспользованная локальная переменная
-  WinSocketServer.vcxproj -> C:\Users\m20er\OneDrive\Рабочий стол\15sysExample\Windows Sockets\WinSocketClient\x64\Debug\WinSocketServer.exe
+C:\Users\st310-09\Desktop\15sysExample\Windows Sockets\WinSocketClient\WinSocketServer\WinSocketServer.cpp(34,46): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\st310-09\Desktop\15sysExample\Windows Sockets\WinSocketClient\WinSocketServer\WinSocketServer.cpp(97,57): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\st310-09\Desktop\15sysExample\Windows Sockets\WinSocketClient\WinSocketServer\WinSocketServer.cpp(51,9): warning C4101: sendResult: неиспользованная локальная переменная
+  WinSocketServer.vcxproj -> C:\Users\st310-09\Desktop\15sysExample\Windows Sockets\WinSocketClient\x64\Debug\WinSocketServer.exe
